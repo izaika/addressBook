@@ -3,4 +3,4 @@ import { findIndex, propEq } from 'ramda';
 import { IContact } from '../../types';
 
 export const findContactIndex = (id: string, contacts: IContact[]) =>
-  findIndex(propEq('id', id), contacts);
+  findIndex(propEq('_id', id), contacts);

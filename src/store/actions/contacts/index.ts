@@ -31,3 +31,13 @@ export const updateContact = (id: string, patch: TPatch): IUpdateContact => ({
   id,
   patch,
 });
+
+export interface ISetContacts extends IAction<'SET_CONTACTS'> {
+  type: 'SET_CONTACTS';
+  contacts: IContact[];
+}
+
+export const setContacts = (contacts: IContact[]): ISetContacts => ({
+  type: 'SET_CONTACTS',
+  contacts,
+});

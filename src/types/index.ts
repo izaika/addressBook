@@ -1,7 +1,7 @@
 export type TGender = 'male' | 'female';
 
 export interface IContact {
-  id: string;
+  _id: string;
   isNew: boolean;
   name: string;
   surname: string;

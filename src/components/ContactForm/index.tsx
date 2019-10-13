@@ -1,5 +1,5 @@
 import React, { FC, ChangeEvent } from 'react';
-import { Form } from 'react-bootstrap';
+import { Form, Button, ButtonToolbar } from 'react-bootstrap';
 
 import { TGender } from '../../types';
 
@@ -8,7 +8,12 @@ import { IProps } from './types';
 export const ContactForm: FC<IProps> = props => {
   const { contact } = props;
   return (
-    <Form>
+    <Form
+      onSubmit={(event: any) => {
+        event.preventDefault();
+        props.onSubmit(contact);
+      }}
+    >
       <Form.Group>
         <Form.Label>Name</Form.Label>
         <Form.Control
@@ -76,6 +81,14 @@ export const ContactForm: FC<IProps> = props => {
           }
         />
       </Form.Group>
+      <ButtonToolbar>
+        <Button variant="success" type="submit">
+          Save
+        </Button>
+        <Button variant="light" onClick={props.onCancelClick}>
+          Cancel
+        </Button>
+      </ButtonToolbar>
     </Form>
   );
 };

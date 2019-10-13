@@ -2,7 +2,7 @@ import { IContact } from '../../types';
 import { guid } from '../../utils';
 
 export const getNewContact = (): IContact => ({
-  id: guid(),
+  _id: guid(),
   isNew: true,
   name: '',
   surname: '',
