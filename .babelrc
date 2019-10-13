@@ -1,0 +1,15 @@
+{
+  "presets": ["@babel/env", "@babel/typescript", "@babel/react"],
+  "plugins": [
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-class-properties",
+    "styled-components",
+    [
+      "module-resolver",
+      {
+        "root": "./",
+        "airslate-static.icons": "./shared/airslate-static.icons"
+      }
+    ]
+  ]
+}
