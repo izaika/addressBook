@@ -1,26 +1,37 @@
-import { append, find, propEq, remove } from 'ramda';
+import { append, find, propEq, remove, update } from 'ramda';
 import { Reducer } from 'redux';
+
+import { findContactIndex } from '../../../utils';
+import { IContact } from '../../../types';
 
 import { initialState } from '../../initialState';
 
-import { IContact } from '../../../types';
-import { IAddContact, IRemoveContact } from '../../actions';
+import { IAddContact, IRemoveContact, IUpdateContact } from '../../actions';
 
-const reducer: Reducer<IContact[], IAddContact | IRemoveContact> = (
-  state = initialState.contacts,
-  action
-) => {
+export const contacts: Reducer<
+  IContact[],
+  IAddContact | IRemoveContact | IUpdateContact
+> = (state = initialState.contacts, action) => {
   switch (action.type) {
     case 'ADD_CONTACT':
       return append(action.contact, state);
 
+    case 'UPDATE_CONTACT': {
+      const indexToUpdate = findContactIndex(action.id, state);
+
+      const updatedContact: IContact = {
+        ...state[indexToUpdate],
+        [action.patch.prop]: action.patch.value,
+      };
+
+      return update(indexToUpdate, updatedContact, state);
+    }
+
     case 'REMOVE_CONTACT': {
-      const indexToRemove = find(propEq('id', action.id), state);
+      const indexToRemove = findContactIndex(action.id, state);
       return remove(indexToRemove, 1, state);
     }
     default:
       return state;
   }
 };
-
-export default reducer;

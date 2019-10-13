@@ -1,11 +1,12 @@
+export type TGender = 'male' | 'female';
+
 export interface IContact {
   id: string;
   isNew: boolean;
   name: string;
   surname: string;
-  gender: 'male' | 'female';
-  yearOfBirth: number;
+  gender: TGender;
   email: string;
-  phone: number;
+  phone: string;
   address: string;
 }

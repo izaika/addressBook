@@ -7,7 +7,7 @@ import { initialState } from '../../initialState';
 import { TActions } from '../../types';
 import { IAddLoader, IRemoveLoader } from '../../actions';
 
-const reducer: Reducer<TActions[], IAddLoader | IRemoveLoader> = (
+export const loaders: Reducer<TActions[], IAddLoader | IRemoveLoader> = (
   state = initialState.loaders,
   action
 ) => {
@@ -22,5 +22,3 @@ const reducer: Reducer<TActions[], IAddLoader | IRemoveLoader> = (
       return state;
   }
 };
-
-export default reducer;
