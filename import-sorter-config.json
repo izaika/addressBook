@@ -1,0 +1,46 @@
+{
+  "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 80,
+  "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimitExceptIfOnlyOne",
+
+  "importSorter.importStringConfiguration.trailingComma": "multiLine",
+  "importSorter.importStringConfiguration.tabSize": 2,
+
+  "importSorter.sortConfiguration.removeUnusedImports": false,
+  "importSorter.sortConfiguration.joinImportPaths": true,
+
+  "importSorter.sortConfiguration.customOrderingRules.rules": [
+    {
+      "type": "importMember",
+      "regex": "^$",
+      "orderLevel": 10,
+      "disableSort": true
+    },
+    {
+      "regex": "^react$",
+      "orderLevel": 18,
+      "numberOfEmptyLinesAfterGroup": 0
+    },
+    {
+      "regex": "^ramda",
+      "orderLevel": 19,
+      "numberOfEmptyLinesAfterGroup": 0
+    },
+    {
+      "regex": "^[@]",
+      "orderLevel": 21
+    },
+    {
+      "regex": "^\\.\\.\\/",
+      "orderLevel": 38
+    },
+    {
+      "regex": "^\\./types",
+      "orderLevel": 50,
+      "numberOfEmptyLinesAfterGroup": 0
+    },
+    {
+      "regex": "^[.]",
+      "orderLevel": 51
+    }
+  ]
+}
