@@ -1,22 +1,10 @@
 import { append, remove, update } from 'ramda';
-import { Reducer } from 'redux';
-
-import { findContactIndex } from '../../../utils';
 import { IContact } from '../../../types';
-
+import { findContactIndex } from '../../../utils';
 import { initialState } from '../../initialState';
+import { TReducer } from '../../types';
 
-import {
-  IAddContact,
-  IRemoveContact,
-  IUpdateContact,
-  ISetContacts,
-} from '../../actions';
-
-export const contacts: Reducer<
-  IContact[],
-  IAddContact | IRemoveContact | IUpdateContact | ISetContacts
-> = (state = initialState.contacts, action) => {
+export const contacts: TReducer<IContact[]> = (state = initialState.contacts, action) => {
   switch (action.type) {
     case 'ADD_CONTACT':
       return append(action.contact, state);

@@ -1,10 +1,7 @@
-import { Reducer } from 'redux';
-
 import { initialState } from '../../initialState';
+import { TReducer } from '../../types';
 
-import { ISetActiveContactId } from '../../actions';
-
-export const activeContactId: Reducer<string, ISetActiveContactId> = (
+export const activeContactId: TReducer<string> = (
   state = initialState.activeContactId,
   action
 ) => {

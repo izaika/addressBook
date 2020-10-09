@@ -1,30 +1,23 @@
-import { Dispatch, Action, StoreEnhancer } from 'redux';
+import {
+  MakeTAction,
+  MakeTActionType,
+  MakeTCGP,
+  MakeTDispatch,
+} from 'airslate-ts-redux';
+import { Reducer } from 'redux';
 
 import { IContact } from '../types';
 
-export type TLoaders = 'GET_CONTACTS' | 'DELETE_CONTACT';
-
-type TLoadersActions = 'ADD_LOADER' | 'REMOVE_LOADER';
-type TActiveContactIdActions = 'SET_ACTIVE_CONTACT_ID';
-type TContactsActions =
-  | 'ADD_CONTACT'
-  | 'UPDATE_CONTACT'
-  | 'REMOVE_CONTACT'
-  | 'SET_CONTACTS';
-
-export type TActions =
-  | TLoadersActions
-  | TActiveContactIdActions
-  | TContactsActions;
+import * as actions from './actions';
 
 export interface IStoreState {
-  loaders: TActions[];
+  loaders: string[];
   activeContactId: string;
   contacts: IContact[];
 }
 
-export interface IAction<T extends TActions = TActions> extends Action<T> {}
-export interface IDispatch<A extends TActions = TActions>
-  extends Dispatch<IAction<A>> {}
-
-export type TStoreEnhancer = StoreEnhancer<{ dispatch: IDispatch }, {}>;
+export type TCGP = MakeTCGP<IStoreState, {}, typeof actions>;
+export type TActionType = MakeTActionType<TCGP>;
+export type TAction = MakeTAction<TCGP>;
+export type TDispatch = MakeTDispatch<TCGP>;
+export type TReducer<T> = Reducer<T, TAction>;

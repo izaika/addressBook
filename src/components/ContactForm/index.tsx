@@ -1,19 +1,23 @@
-import React, { FC, ChangeEvent } from 'react';
-import { Form, Button, ButtonToolbar } from 'react-bootstrap';
+import React, { ChangeEvent, FC, useCallback } from 'react';
+import { Button, ButtonToolbar, Form } from 'react-bootstrap';
 
 import { TGender } from '../../types';
 
 import { IProps } from './types';
 
-export const ContactForm: FC<IProps> = props => {
+export const ContactForm: FC<IProps> = (props) => {
   const { contact } = props;
+
+  const onSubmit = useCallback(
+    (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      props.onSubmit(contact);
+    },
+    [props.onSubmit, contact]
+  );
+
   return (
-    <Form
-      onSubmit={(event: any) => {
-        event.preventDefault();
-        props.onSubmit(contact);
-      }}
-    >
+    <Form onSubmit={onSubmit}>
       <Form.Group>
         <Form.Label>Name</Form.Label>
         <Form.Control

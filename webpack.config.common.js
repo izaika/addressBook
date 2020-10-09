@@ -26,7 +26,9 @@ const getConfig = mode => ({
     rules: [
       {
         test: /\.(js|ts|tsx)$/,
-        exclude: [/node_modules/, /dist/],
+        include: [
+          './src',
+        ].map(i => path.resolve(__dirname, i)),
         use: ['babel-loader'],
       },
       {
@@ -54,7 +56,6 @@ const getConfig = mode => ({
   },
   output: {
     path: path.resolve(__dirname, './build'),
-    // publicPath: './',
     filename: '[name].[hash].js',
   },
   plugins: [
@@ -70,21 +71,5 @@ const getConfig = mode => ({
     port: 9000,
   },
 });
-
-// output: {
-//   path: path.resolve(__dirname, '../../../staticresources/v3/lightning'),
-// },
-// mode: 'development',
-// entry: {
-//   app: './lightning/index.tsx',
-// },
-// plugins: [
-//   new webpack.WatchIgnorePlugin([/scss\.d\.ts$/]),
-//   new WebpackRequireFrom({ methodName: 'getChunkUrl' }),
-//   // new BundleAnalyzerPlugin(),
-// ],
-// devServer: {
-//   contentBase: './dist',
-// },
 
 module.exports = getConfig;

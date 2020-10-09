@@ -1,10 +1,10 @@
-import { IContact } from '../../types';
-import { IUpdateContact } from '../../store/actions';
+import { TUpdateContact } from '../../store/actions';
 import { TPatch } from '../../store/actions/contacts/types';
+import { IContact } from '../../types';
 
 export interface IProps {
   contact: IContact;
-  updateProp: (patch: TPatch) => IUpdateContact;
+  updateProp: (patch: TPatch) => TUpdateContact;
   onCancelClick: () => void;
   onSubmit: (contact: IContact) => void;
 }

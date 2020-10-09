@@ -1,12 +1,12 @@
 import axios from 'axios';
 
 import { IContact } from '../../types';
-import { IDispatch } from '../types';
+import { addLoader, removeLoader } from '../actions';
+import { TDispatch } from '../types';
 
 import { getContacts } from './';
-import { addLoader, removeLoader } from '../actions';
 
-export const deleteContact = (dispatch: IDispatch) => async (_id: string) => {
+export const deleteContact = (dispatch: TDispatch) => async (_id: string) => {
   dispatch(addLoader('DELETE_CONTACT'));
 
   await axios.delete<IContact[]>(_id);

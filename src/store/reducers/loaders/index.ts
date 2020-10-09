@@ -1,22 +1,18 @@
-import { Reducer } from 'redux';
 
 import { appendIfNotIncludes, removeIfIncludes } from '../../../utils';
-
 import { initialState } from '../../initialState';
+import { TReducer } from '../../types';
 
-import { TActions } from '../../types';
-import { IAddLoader, IRemoveLoader } from '../../actions';
-
-export const loaders: Reducer<TActions[], IAddLoader | IRemoveLoader> = (
+export const loaders: TReducer<string[]> = (
   state = initialState.loaders,
   action
 ) => {
   switch (action.type) {
     case 'ADD_LOADER':
-      return appendIfNotIncludes(action.name, state);
+      return appendIfNotIncludes(action.id, state);
 
     case 'REMOVE_LOADER':
-      return removeIfIncludes(action.name, state);
+      return removeIfIncludes(action.id, state);
 
     default:
       return state;

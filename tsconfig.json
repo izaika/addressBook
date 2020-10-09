@@ -18,7 +18,4 @@
   },
   "include": ["./**/*"],
   "exclude": ["node_modules", "./**/*.js"],
-  "paths": {
-    "airslate-static.icons/*": "./shared/airslate-static.icons/*"
-  }
 }

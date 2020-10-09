@@ -1,43 +1,28 @@
 import { IContact } from '../../../types';
-import { IAction } from '../../types';
+
 import { TPatch } from './types';
 
-export interface IAddContact extends IAction<'ADD_CONTACT'> {
-  type: 'ADD_CONTACT';
-  contact: IContact;
-}
-export const addContact = (contact: IContact): IAddContact => ({
-  type: 'ADD_CONTACT',
+export type TAddContact = ReturnType<typeof addContact>;
+export const addContact = (contact: IContact) => ({
+  type: 'ADD_CONTACT' as const,
   contact,
 });
 
-export interface IRemoveContact extends IAction<'REMOVE_CONTACT'> {
-  type: 'REMOVE_CONTACT';
-  id: string;
-}
-export const removeContact = (id: string): IRemoveContact => ({
-  type: 'REMOVE_CONTACT',
+export type TRemoveContact = ReturnType<typeof removeContact>;
+export const removeContact = (id: string) => ({
+  type: 'REMOVE_CONTACT' as const,
   id,
 });
 
-export interface IUpdateContact extends IAction<'UPDATE_CONTACT'> {
-  type: 'UPDATE_CONTACT';
-  id: string;
-  patch: TPatch;
-}
-
-export const updateContact = (id: string, patch: TPatch): IUpdateContact => ({
-  type: 'UPDATE_CONTACT',
+export type TUpdateContact = ReturnType<typeof updateContact>;
+export const updateContact = (id: string, patch: TPatch) => ({
+  type: 'UPDATE_CONTACT' as const,
   id,
   patch,
 });
 
-export interface ISetContacts extends IAction<'SET_CONTACTS'> {
-  type: 'SET_CONTACTS';
-  contacts: IContact[];
-}
-
-export const setContacts = (contacts: IContact[]): ISetContacts => ({
-  type: 'SET_CONTACTS',
+export type TSetContacts = ReturnType<typeof setContacts>;
+export const setContacts = (contacts: IContact[]) => ({
+  type: 'SET_CONTACTS' as const,
   contacts,
 });

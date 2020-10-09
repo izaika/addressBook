@@ -1309,6 +1309,15 @@ acorn@^6.4.1:
   resolved "https://artifactory.infrateam.xyz:443/api/npm/npm/acorn/-/acorn-6.4.2.tgz#35866fd710528e92de10cf06016498e47e39e1e6"
   integrity sha1-NYZv1xBSjpLeEM8GAWSY5H454eY=
 
+airslate-ts-redux@^0.0.3:
+  version "0.0.3"
+  resolved "https://artifactory.infrateam.xyz:443/api/npm/npm/airslate-ts-redux/-/airslate-ts-redux-0.0.3.tgz#833dcb00dc5321815055da76dbecac9db1bbd988"
+  integrity sha1-gz3LANxTIYFQVdp22+ysnbG72Yg=
+  dependencies:
+    redux "^4.0.5"
+    redux-devtools-extension "^2.13.8"
+    redux-thunk "^2.3.0"
+
 ajv-errors@^1.0.0:
   version "1.0.1"
   resolved "https://artifactory.infrateam.xyz:443/api/npm/npm/ajv-errors/-/ajv-errors-1.0.1.tgz#f35986aceb91afadec4102fbd85014950cefa64d"
@@ -4713,7 +4722,17 @@ readdirp@~3.4.0:
   dependencies:
     picomatch "^2.2.1"
 
-redux@^4.0.0, redux@^4.0.4:
+redux-devtools-extension@^2.13.8:
+  version "2.13.8"
+  resolved "https://artifactory.infrateam.xyz:443/api/npm/npm/redux-devtools-extension/-/redux-devtools-extension-2.13.8.tgz#37b982688626e5e4993ff87220c9bbb7cd2d96e1"
+  integrity sha1-N7mCaIYm5eSZP/hyIMm7t80tluE=
+
+redux-thunk@^2.3.0:
+  version "2.3.0"
+  resolved "https://artifactory.infrateam.xyz:443/api/npm/npm/redux-thunk/-/redux-thunk-2.3.0.tgz#51c2c19a185ed5187aaa9a2d08b666d0d6467622"
+  integrity sha1-UcLBmhhe1Rh6qpotCLZm0NZGdiI=
+
+redux@^4.0.0, redux@^4.0.4, redux@^4.0.5:
   version "4.0.5"
   resolved "https://artifactory.infrateam.xyz:443/api/npm/npm/redux/-/redux-4.0.5.tgz#4db5de5816e17891de8a80c424232d06f051d93f"
   integrity sha1-TbXeWBbheJHeioDEJCMtBvBR2T8=

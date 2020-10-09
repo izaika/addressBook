@@ -1,5 +1,6 @@
+import { MakeTUseDispatch } from 'airslate-ts-redux';
 import { useDispatch as useDispatchUntyped } from 'react-redux';
 
-import { IDispatch } from '../types';
+import { TCGP } from '../types';
 
-export const useDispatch: () => IDispatch = useDispatchUntyped;
+export const useDispatch: MakeTUseDispatch<TCGP> = useDispatchUntyped;

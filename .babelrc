@@ -1,14 +1,23 @@
 {
-  "presets": ["@babel/env", "@babel/typescript", "@babel/react"],
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "targets": "> 0.25%, not dead"
+      }
+    ],
+    "@babel/typescript",
+    "@babel/react"
+  ],
   "plugins": [
+    "@babel/plugin-syntax-object-rest-spread",
     "@babel/plugin-syntax-dynamic-import",
     "@babel/plugin-proposal-class-properties",
     "styled-components",
     [
       "module-resolver",
       {
-        "root": "./",
-        "airslate-static.icons": "./shared/airslate-static.icons"
+        "root": "./"
       }
     ]
   ]
