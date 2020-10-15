@@ -1,13 +1,15 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
-import axios from 'axios';
 import * as React from 'react';
+import axios from 'axios';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import { apiBaseUrl, apiKey } from '../config';
+
 import { App } from './containers/App';
+// import { ClassComponent } from './containers/App/class';
 import { store } from './store';
 
 axios.defaults.baseURL = apiBaseUrl;
@@ -23,6 +25,7 @@ axios.interceptors.request.use(config => {
 ReactDOM.render(
   <Provider store={store}>
     <App />
+    {/* <ClassComponent initialCounter={4} /> */}
   </Provider>,
   document.getElementById('root')
 );
