@@ -1,4 +1,3 @@
-
 import {
   applyMiddleware,
   composeEnhancers,
@@ -11,8 +10,4 @@ import { reducers } from './reducers';
 
 const enhancer = composeEnhancers<TCGP>(applyMiddleware(...[]));
 
-export const store = createStore<TCGP>(
-  reducers,
-  initialState,
-  enhancer
-);
+export const store = createStore<TCGP>(reducers, initialState, enhancer);

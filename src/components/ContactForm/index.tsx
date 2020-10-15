@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, useCallback } from 'react';
+import React, { ChangeEvent, FC, FormEvent, useCallback } from 'react';
 import { Button, ButtonToolbar, Form } from 'react-bootstrap';
 
 import { TGender } from '../../types';
@@ -9,7 +9,7 @@ export const ContactForm: FC<IProps> = (props) => {
   const { contact } = props;
 
   const onSubmit = useCallback(
-    (event: React.FormEvent<HTMLFormElement>) => {
+    (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault();
       props.onSubmit(contact);
     },

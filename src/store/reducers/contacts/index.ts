@@ -4,7 +4,10 @@ import { findContactIndex } from '../../../utils';
 import { initialState } from '../../initialState';
 import { TReducer } from '../../types';
 
-export const contacts: TReducer<IContact[]> = (state = initialState.contacts, action) => {
+export const contacts: TReducer<IContact[]> = (
+  state = initialState.contacts,
+  action
+) => {
   switch (action.type) {
     case 'ADD_CONTACT':
       return append(action.contact, state);
