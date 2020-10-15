@@ -9,5 +9,4 @@ import { initialState } from './initialState';
 import { reducers } from './reducers';
 
 const enhancer = composeEnhancers<TCGP>(applyMiddleware(...[]));
-
 export const store = createStore<TCGP>(reducers, initialState, enhancer);
